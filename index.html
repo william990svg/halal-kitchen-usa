@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halal Kitchen USA — Halal American Recipes for Busy Muslim Families</title>
+<meta name="description" content="Halal Kitchen USA: easy halal American recipes for busy Muslim families — smash burgers, BBQ chicken & waffles, tacos, butter chicken, biryani. Plus a halal substitute finder and a 7-day dinner plan. No pork, no alcohol, all flavor.">
+<meta name="keywords" content="halal recipes, halal cooking USA, halal burgers, halal chicken recipes, Ramadan iftar recipes, halal dinner ideas, halal substitutes, halal meal plan">
+<meta property="og:title" content="Halal Kitchen USA — Halal American Recipes">
+<meta property="og:description" content="Easy halal American recipes for busy Muslim families. No pork, no alcohol, all flavor.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+<style>
+:root{
+  --cream:#fff7ef; --card:#ffffff; --ink:#3b2a1e; --muted:#8a6f5c;
+  --tomato:#d94f30; --tomato-d:#b23a20; --gold:#f5a623; --green:#2f9e44;
+  --border:#f3ddc8;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; color:var(--ink); line-height:1.55;
+  background:var(--cream); -webkit-tap-highlight-color:transparent; min-height:100vh}
+a{color:var(--tomato)}
+header{text-align:center; padding:30px 16px 14px; background:linear-gradient(180deg,#ffe8d6,#fff7ef)}
+header .logo{font-size:56px}
+header h1{font-size:36px; font-weight:900; color:var(--ink)}
+header h1 span{color:var(--tomato)}
+header p{color:var(--muted); font-size:15.5px; max-width:520px; margin:6px auto 0}
+.pill-row{margin-top:14px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
+.pill{background:#fff; border:2px solid var(--border); border-radius:999px; padding:6px 14px; font-size:13.5px; font-weight:700; color:#7a4a21}
+.ramadan-box{max-width:680px; margin:14px auto 0; background:linear-gradient(135deg,#0d5c3f,#177a52); color:#fff;
+  border-radius:18px; padding:16px 18px; text-align:center; box-shadow:0 10px 24px rgba(13,92,63,.3)}
+.ramadan-box .lbl{font-size:12px; letter-spacing:2px; text-transform:uppercase; opacity:.85; font-weight:700}
+.ramadan-box .big{font-size:26px; font-weight:900; margin-top:2px}
+.ramadan-box .sub{font-size:13.5px; opacity:.92; margin-top:2px}
+nav{position:sticky; top:0; z-index:50; background:rgba(255,247,239,.94); backdrop-filter:blur(10px);
+  border-bottom:3px solid var(--gold); display:flex; overflow-x:auto; scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:1 0 auto; text-align:center; padding:13px 8px; text-decoration:none; color:var(--ink); font-weight:800; font-size:14.5px; white-space:nowrap; border-bottom:4px solid transparent}
+nav a:hover{border-bottom-color:var(--tomato)}
+main{max-width:720px; margin:0 auto; padding:20px 14px 40px}
+section{margin-bottom:26px}
+h2{font-size:23px; margin-bottom:4px}
+.sub{color:var(--muted); font-size:14px; margin-bottom:14px}
+.search{width:100%; padding:13px 14px; font-size:16px; border:2px solid var(--border); border-radius:14px; background:#fff; color:var(--ink)}
+.search:focus{outline:none; border-color:var(--tomato)}
+.chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+.chip{border:2px solid var(--border); background:#fff; border-radius:999px; padding:8px 14px; font-size:14px; font-weight:700; cursor:pointer; color:var(--ink)}
+.chip.on{background:var(--tomato); border-color:var(--tomato); color:#fff}
+.card{background:var(--card); border:2px solid var(--border); border-radius:20px; padding:18px; margin-bottom:14px;
+  box-shadow:0 6px 0 rgba(59,42,30,.05)}
+.recipe-card{cursor:pointer}
+.recipe-top{display:flex; gap:14px; align-items:flex-start}
+.recipe-emoji{font-size:52px; line-height:1}
+.recipe-top h3{font-size:19px}
+.meta{font-size:13px; color:var(--muted); font-weight:700; margin-top:3px}
+.meta span{margin-right:10px}
+.tags{margin-top:8px; display:flex; gap:6px; flex-wrap:wrap}
+.tag{font-size:12px; font-weight:800; background:#fff0e0; color:#b25e09; border-radius:999px; padding:3px 10px}
+.view-btn{margin-top:12px; width:100%; padding:12px; border:none; border-radius:14px; background:var(--tomato); color:#fff;
+  font-size:15px; font-weight:800; cursor:pointer; box-shadow:0 4px 0 var(--tomato-d)}
+.view-btn:active{transform:translateY(3px); box-shadow:0 1px 0 var(--tomato-d)}
+.recipe-detail{display:none; margin-top:14px; border-top:2px dashed var(--border); padding-top:14px}
+.recipe-detail h4{font-size:15px; margin:10px 0 6px; color:var(--tomato)}
+.recipe-detail ul,.recipe-detail ol{padding-left:20px; font-size:15px}
+.recipe-detail li{margin-bottom:5px}
+.print-btn{margin-top:12px; padding:10px 18px; border:2px solid var(--border); border-radius:999px; background:#fff;
+  font-size:14px; font-weight:800; cursor:pointer; color:var(--ink)}
+.no-results{display:none; text-align:center; color:var(--muted); padding:20px; font-size:15px}
+.sub-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+.sub-btn{padding:13px; border:2px solid var(--border); background:#fff; border-radius:14px; font-size:15px; font-weight:700;
+  cursor:pointer; text-align:left}
+.sub-btn.on{background:#fff0e0; border-color:var(--tomato)}
+.sub-result{background:#eef7ee; border:2px solid #bfe3bf; border-radius:16px; padding:16px; margin-top:14px; display:none}
+.sub-result .from{font-size:14px; color:var(--muted)}
+.sub-result .to{font-size:20px; font-weight:900; color:var(--green); margin-top:2px}
+.sub-result .why{font-size:14.5px; margin-top:6px}
+.plan-days{display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none}
+.plan-days::-webkit-scrollbar{display:none}
+.day-btn{flex:1 0 auto; padding:11px 14px; border:2px solid var(--border); background:#fff; border-radius:14px;
+  font-size:14px; font-weight:800; cursor:pointer}
+.day-btn.on{background:var(--gold); border-color:#e0a800}
+.plan-detail{background:#fff; border:2px solid var(--border); border-radius:18px; padding:18px; margin-top:12px}
+.plan-detail .emoji{font-size:44px}
+.plan-detail h3{font-size:19px; margin-top:4px}
+.plan-detail p{color:var(--muted); font-size:14.5px; margin-top:4px}
+.iftar-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+.iftar-card{background:#fff; border:2px solid var(--border); border-radius:16px; padding:16px}
+.iftar-card .e{font-size:36px}
+.iftar-card h3{font-size:16.5px; margin-top:4px}
+.iftar-card p{font-size:14px; color:var(--muted); margin-top:4px}
+.note-box{background:#fff8e1; border:2px solid #ffe08a; border-radius:16px; padding:16px; font-size:14.5px}
+.note-box b{color:#8a6d1b}
+footer{text-align:center; color:var(--muted); font-size:12.5px; padding:8px 16px 30px; max-width:720px; margin:0 auto}
+@media (max-width:480px){ header h1{font-size:29px} .sub-grid,.iftar-grid{grid-template-columns:1fr 1fr} .recipe-emoji{font-size:44px} }
+@media print{ nav,.search,.chips,.view-btn,.print-btn,header .pill-row,.ramadan-box{display:none !important} body{background:#fff} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🍔</div>
+  <h1>Halal Kitchen <span>USA</span></h1>
+  <p>Halal American recipes for busy Muslim families. No pork, no alcohol — all flavor.</p>
+  <div class="pill-row">
+    <span class="pill">🍔 Halal Burgers</span>
+    <span class="pill">🍗 Chicken</span>
+    <span class="pill">🌙 Ramadan Iftar</span>
+    <span class="pill">📅 7-Day Plan</span>
+  </div>
+  <div class="ramadan-box">
+    <div class="lbl">🌙 Ramadan Countdown</div>
+    <div class="big" id="ramadanCount">—</div>
+    <div class="sub" id="ramadanDate">—</div>
+  </div>
+</header>
+
+<nav>
+  <a href="#recipes">🍽️ Recipes</a>
+  <a href="#substitutes">🔄 Substitutes</a>
+  <a href="#mealplan">📅 Meal Plan</a>
+  <a href="#iftar">🌙 Iftar</a>
+</nav>
+
+<main>
+
+<!-- ============ RECIPES ============ -->
+<section id="recipes">
+  <h2>🍽️ Recipes</h2>
+  <p class="sub">Tap a recipe to see ingredients and steps. Search or filter by what you are craving.</p>
+  <input class="search" id="searchInput" type="text" placeholder="Search recipes… try 'chicken' or 'burger'">
+  <div class="chips" id="filterChips">
+    <button class="chip on" data-filter="all">All</button>
+    <button class="chip" data-filter="burgers">Burgers &amp; Sandwiches</button>
+    <button class="chip" data-filter="chicken">Chicken</button>
+    <button class="chip" data-filter="pasta">Pasta</button>
+    <button class="chip" data-filter="desi">Desi</button>
+    <button class="chip" data-filter="weeknight">Weeknight</button>
+    <button class="chip" data-filter="ramadan">Ramadan</button>
+  </div>
+  <div id="recipeGrid" style="margin-top:14px"></div>
+  <div class="no-results" id="noResults">No recipes match that search. Try "chicken", "beef" or "pasta".</div>
+</section>
+
+<!-- ============ SUBSTITUTES ============ -->
+<section id="substitutes">
+  <h2>🔄 Halal Substitute Finder</h2>
+  <p class="sub">A recipe calls for something not halal? Tap it and get the halal swap that works the same way.</p>
+  <div class="sub-grid" id="subChips"></div>
+  <div class="sub-result" id="subResult">
+    <div class="from" id="subFrom">—</div>
+    <div class="to" id="subTo">—</div>
+    <div class="why" id="subWhy">—</div>
+  </div>
+</section>
+
+<!-- ============ MEAL PLAN ============ -->
+<section id="mealplan">
+  <h2>📅 7-Day Dinner Plan</h2>
+  <p class="sub">One less decision every evening. Tap a day to see dinner.</p>
+  <div class="plan-days" id="planDays"></div>
+  <div class="plan-detail" id="planDetail"></div>
+</section>
+
+<!-- ============ IFTAR ============ -->
+<section id="iftar">
+  <h2>🌙 Iftar Ideas</h2>
+  <p class="sub">Simple iftar plates that work for a busy family — start with dates and water, then soup, then the main.</p>
+  <div class="iftar-grid">
+    <div class="iftar-card"><div class="e">🌰</div><h3>Dates + Water</h3><p>The Sunnah way to break the fast. 2–3 dates, a glass of water, then pray Maghrib before the main meal.</p></div>
+    <div class="iftar-card"><div class="e">🍲</div><h3>Lentil Soup (Shorba)</h3><p>Red lentils, onion, cumin, lemon. Light, warm and easy on an empty stomach — ready in 25 minutes.</p></div>
+    <div class="iftar-card"><div class="e">🥗</div><h3>Fruit Chaat</h3><p>Apples, bananas, oranges, grapes with a pinch of chaat masala and lemon. Sweet, fresh, and the kids love it.</p></div>
+    <div class="iftar-card"><div class="e">🍗</div><h3>Iftar Main: Butter Chicken</h3><p>Make the butter chicken from the recipe below, with naan and rice. Cook the sauce earlier in the day — just warm and serve.</p></div>
+  </div>
+  <div class="note-box" style="margin-top:14px">
+    <b>✅ What "halal" means here:</b> all meat is zabihah halal — look for halal certification at your butcher or grocery (most US cities have halal butchers and halal sections at Walmart, Costco and Sam's Club). No pork, no alcohol in any recipe — including sauces and stocks.
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Halal Kitchen USA — free recipes for Muslim families in America.
+  <br>Cooking times are guides; always check chicken reaches 165°F (74°C) inside.
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- helpers ---------- */
+function $(id){ return document.getElementById(id); }
+
+/* ---------- RAMADAN COUNTDOWN ---------- */
+var RAMADANS = [
+  {date:"2027-02-08", label:"Ramadan 2027 starts February 8, 2027"},
+  {date:"2028-01-28", label:"Ramadan 2028 starts January 28, 2028"},
+  {date:"2029-01-17", label:"Ramadan 2029 starts January 17, 2029"},
+  {date:"2030-01-06", label:"Ramadan 2030 starts January 6, 2030"}
+];
+(function(){
+  var now = new Date(); now.setHours(0,0,0,0);
+  var next = null;
+  for (var i = 0; i < RAMADANS.length; i++) {
+    var d = new Date(RAMADANS[i].date + "T00:00:00");
+    if (d >= now) { next = {d:d, label:RAMADANS[i].label}; break; }
+  }
+  if (next) {
+    var days = Math.round((next.d - now) / 86400000);
+    $("ramadanCount").textContent = days === 0 ? "Ramadan Mubarak! 🌙" : days + " days to go";
+    $("ramadanDate").textContent = next.label;
+  } else {
+    $("ramadanCount").textContent = "Ramadan Mubarak! 🌙";
+    $("ramadanDate").textContent = "Check back for the next Ramadan dates.";
+  }
+})();
+
+/* ---------- RECIPES ---------- */
+var RECIPES = [
+  {
+    name:"Halal Smash Burgers", emoji:"🍔", time:"25 min", serves:"4 servings", level:"Easy",
+    cats:["burgers","weeknight"], tags:["Weeknight","Kids love it"],
+    ing:["500g halal ground beef (80/20)","1 tsp salt","½ tsp black pepper","½ tsp garlic powder","4 potato buns","4 cheddar cheese slices","Lettuce, tomato, red onion, pickles","Sauce: 3 tbsp mayo, 1 tbsp ketchup, 1 tsp mustard, 1 tbsp pickle relish"],
+    steps:["Divide the beef into 4 loose balls — do not overwork the meat.","Heat a cast-iron pan or flat griddle on high. Smash each ball flat with a spatula, then season.","Cook 2–3 minutes, flip, add cheese on top and cook 1 minute more.","Toast the buns, spread sauce on both sides, and build with lettuce, tomato, onion and pickles."]
+  },
+  {
+    name:"BBQ Chicken & Waffles", emoji:"🧇", time:"35 min + 30 min marinade", serves:"4 servings", level:"Medium",
+    cats:["chicken","ramadan"], tags:["Weekend","Ramadan favorite"],
+    ing:["4 boneless halal chicken thighs","1 cup buttermilk","1 tsp hot sauce","1½ cups flour","1 tsp paprika","1 tsp garlic powder","½ tsp salt, ½ tsp black pepper","Oil for frying","4 waffles (frozen or homemade)","Maple syrup and butter, to serve"],
+    steps:["Marinate the chicken in buttermilk and hot sauce for 30 minutes (overnight is even better).","Mix flour with paprika, garlic powder, salt and pepper. Dredge each thigh well.","Fry in hot oil 6–7 minutes per side until golden and 165°F inside.","Toast the waffles, top with chicken, butter and warm maple syrup."]
+  },
+  {
+    name:"Creamy Chicken Alfredo Pasta", emoji:"🍝", time:"30 min", serves:"4 servings", level:"Easy",
+    cats:["pasta","chicken","weeknight"], tags:["Weeknight","One pan sauce"],
+    ing:["300g fettuccine","2 halal chicken breasts","2 tbsp butter","3 garlic cloves, minced","1 cup heavy cream","¾ cup grated parmesan","Salt and black pepper","Chopped parsley, to serve"],
+    steps:["Boil the pasta until al dente. Save ½ cup of the pasta water before draining.","Season the chicken and sear 5–6 minutes per side. Rest 5 minutes, then slice.","In the same pan, melt butter, cook garlic 30 seconds, then add cream. Simmer 3 minutes and stir in parmesan until smooth.","Toss the pasta and chicken in the sauce. Loosen with pasta water if needed and top with parsley."]
+  },
+  {
+    name:"Weeknight Beef Tacos", emoji:"🌮", time:"20 min", serves:"4 servings", level:"Easy",
+    cats:["weeknight"], tags:["Weeknight","Kids love it","20 minutes"],
+    ing:["500g halal ground beef","1 tbsp chili powder","1 tsp cumin","1 tsp paprika","½ tsp garlic powder","½ tsp onion powder","Salt to taste","8 small flour tortillas","Shredded cheese, lettuce, tomato, sour cream, salsa"],
+    steps:["Brown the beef in a pan, breaking it up. Drain the fat.","Add all the spices and ¼ cup of water. Simmer 3–4 minutes until thick.","Warm the tortillas in a dry pan or microwave.","Build the tacos: beef, cheese, lettuce, tomato, sour cream and salsa."]
+  },
+  {
+    name:"Butter Chicken", emoji:"🍛", time:"40 min + 30 min marinade", serves:"4 servings", level:"Medium",
+    cats:["desi","chicken","ramadan"], tags:["Desi","Ramadan favorite"],
+    ing:["500g halal chicken thigh, cubed","½ cup yogurt","1 tbsp garam masala","1 tsp chili powder","Salt to taste","3 tbsp butter","1 onion, chopped","3 garlic cloves + 1 tbsp ginger, minced","400g tomato puree","1 tsp sugar","½ cup cream","1 tsp kasuri methi (dried fenugreek)"],
+    steps:["Marinate the chicken in yogurt, garam masala, chili powder and salt for 30 minutes.","Pan-fry the chicken until the edges are lightly charred. Set aside.","Melt butter, cook onion, garlic and ginger, then add tomato puree and sugar. Simmer 10 minutes, then blend smooth.","Return the sauce to the pan, add chicken, cream and kasuri methi. Simmer 5 minutes. Serve with naan or rice."]
+  },
+  {
+    name:"Crispy Chicken Sandwich", emoji:"🍗", time:"30 min + 30 min marinade", serves:"4 servings", level:"Medium",
+    cats:["chicken","burgers"], tags:["Sandwiches","Kids love it"],
+    ing:["4 halal chicken breasts, pounded to even thickness","1 cup buttermilk","1 tbsp hot sauce","1½ cups flour","1 tsp paprika","1 tsp garlic powder","½ tsp cayenne","Salt and black pepper","Oil for frying","4 brioche buns, pickles, mayo"],
+    steps:["Pound the chicken to an even thickness so it cooks evenly. Marinate in buttermilk and hot sauce for 30 minutes.","Mix flour with paprika, garlic powder, cayenne, salt and pepper. Dredge each breast.","Fry 5–6 minutes per side until deep golden and 165°F inside. Rest on a rack.","Toast the buns, spread mayo, add pickles and the crispy chicken."]
+  },
+  {
+    name:"Beef Biryani (Sunday)", emoji:"🍚", time:"60 min", serves:"6 servings", level:"Medium",
+    cats:["desi","ramadan"], tags:["Desi","Weekend","Ramadan favorite"],
+    ing:["500g halal beef, cubed","2 cups basmati rice, soaked 30 minutes","2 onions, sliced","½ cup yogurt","2 tbsp biryani masala","1 tsp ginger-garlic paste","¼ cup warm milk + a pinch of saffron","Fresh mint and coriander","4 tbsp oil or ghee"],
+    steps:["Marinate the beef in yogurt, biryani masala and ginger-garlic paste for 30 minutes.","Fry the onions until golden, set half aside. Cook the beef in the same pot until tender, about 25–30 minutes.","Boil the rice until 70% done, then drain.","Layer the rice over the beef, top with fried onions, saffron milk and herbs. Cover tightly and steam on low heat (dum) for 20 minutes."]
+  }
+];
+
+var currentFilter = "all";
+var currentSearch = "";
+
+function renderRecipes(){
+  var grid = $("recipeGrid");
+  grid.innerHTML = "";
+  var shown = 0;
+  RECIPES.forEach(function(r, i){
+    var okFilter = (currentFilter === "all") || (r.cats.indexOf(currentFilter) !== -1);
+    var q = currentSearch.toLowerCase();
+    var okSearch = !q || r.name.toLowerCase().indexOf(q) !== -1 ||
+      r.ing.join(" ").toLowerCase().indexOf(q) !== -1 ||
+      r.tags.join(" ").toLowerCase().indexOf(q) !== -1;
+    if (!okFilter || !okSearch) return;
+    shown++;
+    var card = document.createElement("div");
+    card.className = "card recipe-card";
+    card.innerHTML =
+      '<div class="recipe-top"><div class="recipe-emoji">' + r.emoji + '</div>' +
+      '<div><h3>' + r.name + '</h3>' +
+      '<div class="meta"><span>⏱ ' + r.time + '</span><span>👥 ' + r.serves + '</span><span>📶 ' + r.level + '</span></div>' +
+      '<div class="tags">' + r.tags.map(function(t){ return '<span class="tag">' + t + '</span>'; }).join("") + '</div></div></div>' +
+      '<button class="view-btn" data-i="' + i + '">View Recipe ↓</button>' +
+      '<div class="recipe-detail" id="detail-' + i + '">' +
+      '<h4>Ingredients</h4><ul>' + r.ing.map(function(x){ return '<li>' + x + '</li>'; }).join("") + '</ul>' +
+      '<h4>Steps</h4><ol>' + r.steps.map(function(x){ return '<li>' + x + '</li>'; }).join("") + '</ol>' +
+      '<button class="print-btn" onclick="window.print()">🖨️ Print this recipe</button></div>';
+    grid.appendChild(card);
+  });
+  $("noResults").style.display = shown === 0 ? "block" : "none";
+  grid.querySelectorAll(".view-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var d = $("detail-" + btn.getAttribute("data-i"));
+      var open = d.style.display === "block";
+      document.querySelectorAll(".recipe-detail").forEach(function(x){ x.style.display = "none"; });
+      document.querySelectorAll(".view-btn").forEach(function(b){ b.textContent = "View Recipe ↓"; });
+      d.style.display = open ? "none" : "block";
+      btn.textContent = open ? "View Recipe ↓" : "Hide Recipe ↑";
+      if (!open) d.scrollIntoView({behavior:"smooth", block:"nearest"});
+    });
+  });
+}
+$("searchInput").addEventListener("input", function(){ currentSearch = this.value; renderRecipes(); });
+document.querySelectorAll("#filterChips .chip").forEach(function(c){
+  c.addEventListener("click", function(){
+    document.querySelectorAll("#filterChips .chip").forEach(function(x){ x.classList.remove("on"); });
+    c.classList.add("on");
+    currentFilter = c.getAttribute("data-filter");
+    renderRecipes();
+  });
+});
+renderRecipes();
+
+/* ---------- SUBSTITUTES ---------- */
+var SUBS = [
+  {from:"Pork bacon", to:"Halal beef bacon or turkey bacon", why:"Look for halal-certified packs at your halal butcher or grocery. Fry until crisp — same smoky crunch on burgers, in pasta and at breakfast."},
+  {from:"Wine (for cooking)", to:"Grape juice + 1 tsp vinegar, or stock", why:"Wine adds acidity, not alcohol, after cooking. Grape juice with a splash of vinegar — or chicken/beef stock — gives the same depth in sauces and stews."},
+  {from:"Pork gelatin", to:"Halal gelatin or agar-agar", why:"Halal gelatin works 1:1 in desserts. Agar-agar (seaweed-based) sets firmer, so use a little less — great for jellies and panna cotta."},
+  {from:"Lard", to:"Butter, ghee or vegetable shortening", why:"Same richness for pastry, pie crusts and frying. Butter gives the best flavor; shortening gives the flakiest crust."},
+  {from:"Pork pepperoni", to:"Halal beef pepperoni or turkey pepperoni", why:"Halal-certified beef pepperoni is sold at most halal grocers and online. Same spicy topping for pizza and pasta."},
+  {from:"Beer (in batters)", to:"Sparkling water or soda water", why:"Beer makes batters light and crispy because of the bubbles — sparkling water does the exact same job, with no alcohol."},
+  {from:"Ham", to:"Halal deli turkey or beef pastrami", why:"Halal delis and grocery halal sections carry sliced turkey and beef pastrami — the same sandwich filling, fully halal."},
+  {from:"Vanilla extract (alcohol-based)", to:"Alcohol-free vanilla extract or vanilla paste", why:"Regular vanilla extract is made with alcohol. Alcohol-free extract and vanilla bean paste give the same flavor in cakes, cookies and custards."}
+];
+var subGrid = $("subChips");
+SUBS.forEach(function(s, i){
+  var b = document.createElement("button");
+  b.className = "sub-btn";
+  b.textContent = "🚫 " + s.from;
+  b.addEventListener("click", function(){
+    subGrid.querySelectorAll(".sub-btn").forEach(function(x){ x.classList.remove("on"); });
+    b.classList.add("on");
+    $("subFrom").textContent = "Instead of: " + s.from;
+    $("subTo").textContent = "✅ Use: " + s.to;
+    $("subWhy").textContent = s.why;
+    $("subResult").style.display = "block";
+  });
+  subGrid.appendChild(b);
+});
+
+/* ---------- MEAL PLAN ---------- */
+var PLAN = [
+  {day:"Mon", emoji:"🌮", name:"Weeknight Beef Tacos", note:"20 minutes, one pan. The fastest dinner of the week — the kids build their own tacos."},
+  {day:"Tue", emoji:"🍝", name:"Creamy Chicken Alfredo Pasta", note:"30 minutes. Comfort food night — the sauce comes together while the pasta boils."},
+  {day:"Wed", emoji:"🍛", name:"Butter Chicken + Rice", note:"40 minutes. Marinate in the morning, cook in the evening. Naan on the side."},
+  {day:"Thu", emoji:"🍔", name:"Halal Smash Burgers", note:"25 minutes. Burger night — let everyone pick their own toppings."},
+  {day:"Fri", emoji:"🧇", name:"BBQ Chicken & Waffles", note:"35 minutes. Friday treat night — sweet, smoky and fun."},
+  {day:"Sat", emoji:"🍗", name:"Crispy Chicken Sandwich + Fries", note:"30 minutes. Weekend sandwich night — make extra, they disappear fast."},
+  {day:"Sun", emoji:"🍚", name:"Beef Biryani", note:"60 minutes. Slow Sunday family meal — the whole house smells amazing."}
+];
+var planDays = $("planDays");
+var todayIdx = (new Date().getDay() + 6) % 7; // Monday = 0
+PLAN.forEach(function(p, i){
+  var b = document.createElement("button");
+  b.className = "day-btn" + (i === todayIdx ? " on" : "");
+  b.textContent = p.day + (i === todayIdx ? " •" : "");
+  b.addEventListener("click", function(){ showDay(i); });
+  planDays.appendChild(b);
+});
+function showDay(i){
+  planDays.querySelectorAll(".day-btn").forEach(function(b, j){ b.classList.toggle("on", j === i); });
+  var p = PLAN[i];
+  $("planDetail").innerHTML = '<div class="emoji">' + p.emoji + '</div><h3>' + p.day + ' — ' + p.name + '</h3><p>' + p.note + '</p>';
+}
+showDay(todayIdx);
+
+})();
+</script>
+</body>
+</html>
